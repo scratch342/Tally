@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+.fullwidth {
+    width: 100%;
+}
+.tally {
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.center {
+    text-align: center;
+    margin: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.mdl-button {
+    margin-left: 20px;
+}
+.con {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.talcon {
+    margin-top: 50px;
+}
