@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class FlickrAppPage {
+export class TallyPage {
   navigateTo() {
     return browser.get('/');
   }
