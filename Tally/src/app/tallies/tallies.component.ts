@@ -40,6 +40,7 @@ onAddTally(){
   this.tallies.push({tallyName: this.newTallyName, tallyAmount: this.newTallyAmount, tallyQuantity: this.newTallyQuantity})
   this.newTallyName = '';
   this.newTallyQuantity = null;
+  this.newTallyAmount = null;
   
 }
 onDeleteTally(tally){
@@ -52,3 +53,4 @@ onDeleteTally(tally){
   }
 
 }
+

@@ -1,10 +1,10 @@
-import { FlickrAppPage } from './app.po';
+import { TallyPage } from './app.po';
 
-describe('flickr-app App', () => {
-  let page: FlickrAppPage;
+describe('tally App', () => {
+  let page: TallyPage;
 
   beforeEach(() => {
-    page = new FlickrAppPage();
+    page = new TallyPage();
   });
 
   it('should display message saying app works', () => {
