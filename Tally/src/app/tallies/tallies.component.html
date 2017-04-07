@@ -1,33 +1,38 @@
-<div class="container">
-<div class="input-group">
-<input class="form-control" type="text" placeholder="Name" [(ngModel)]='newTallyName'>
-<input class="form-control" type="text" placeholder="Quantity" [(ngModel)]='newTallyQuantity'>
-<input class="form-control" type="text" placeholder="Amount" [(ngModel)]='newTallyAmount'>
-<button class="btn btn-success" (click)="onAddTally()">Add Tally</button>
-</div>
-<ul class="list-group">
-    <li class="list-group-item">
-        <div class="row">
-            <span class="col-xs-4">
-                Name
-            </span>
-            <span class="col-xs-4 text-center">
-                Amount
-            </span>
-            <span class="pull-right">
-                Quantity
-            </span>
+<div class='talcon'>
+    <form action="#" class='center'>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="samplename" [(ngModel)]='newTallyName' [ngModelOptions]="{standalone: true}"/>
+            <label class="mdl-textfield__label" for="samplename">Name...</label>
         </div>
-    </li>
-</ul>
-<h1 class="jumbotron text-center" *ngIf="tallies == 0">Your Tallies Will Show Up Here</h1>
-    <ul class="list-group">
-        <li class="list-group-item" *ngFor= "let tally of tallies">
-            <div class="row">
-            <span class="col-xs-4"><span (click)="onDeleteTally(tally)" class="glyphicon glyphicon-trash"></span>&nbsp; {{tally.tallyName}}</span>
-            <span class="text-center col-xs-4">{{tally.tallyAmount}}₦ </span>
-            <span class="pull-right">{{tally.tallyQuantity}}</span>
-            </div>
-        </li>
-    </ul>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="samplequantity" [(ngModel)]='newTallyQuantity' [ngModelOptions]="{standalone: true}"/>
+            <label class="mdl-textfield__label" for="samplequantity">Quantity...</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="sampleamount" [(ngModel)]='newTallyAmount' [ngModelOptions]="{standalone: true}"/>
+            <label class="mdl-textfield__label" for="sampleamount">Amount...</label>
+        </div>
+        <button class="mdl-button mdl-button--raised mdl-button--colored mdl-js-ripple-js mdl-button--accent" (click)="onAddTally()">
+            Add
+        </button>
+    </form>
+    
+    <div class='con'>
+        <table class='tally mdl-data-table mdl-js-data-table mdl-shadow--2dp fullwidth '>
+        <thead>
+            <th class='mdl-data-table__cell--non-numeric'> Name</th>
+            <th> Price </th>
+            <th> Quantity </th>
+        </thead>
+        <tbody>
+            <tr *ngFor= 'let tally of tallies'>
+                <td class='mdl-data-table__cell--non-numeric' (click)="onDeleteTally(tally)"> {{tally.tallyName}}</td>
+                <td>{{tally.tallyAmount}}₦</td>
+                <td>{{tally.tallyQuantity}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    </div>
+
 </div>
