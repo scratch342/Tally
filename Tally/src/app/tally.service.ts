@@ -10,4 +10,5 @@ private tallies: Tally[] = [];
     getTallies(){
         return this.tallies;
     }
+    
 }
