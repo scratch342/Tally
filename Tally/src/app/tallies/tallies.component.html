@@ -1,18 +1,18 @@
 <div class='talcon'>
     <form action="#" class='center'>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="samplename" [(ngModel)]='newTallyName' [ngModelOptions]="{standalone: true}"/>
-            <label class="mdl-textfield__label" for="samplename">Name...</label>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="samplename" placeholder="Name... "[(ngModel)]='newTallyName' [ngModelOptions]="{standalone: true}"/>
+            <!--<label class="mdl-textfield__label" for="samplename">Name...</label>-->
         </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="samplequantity" [(ngModel)]='newTallyQuantity' [ngModelOptions]="{standalone: true}"/>
-            <label class="mdl-textfield__label" for="samplequantity">Quantity...</label>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="samplequantity" placeholder="Quantity... " [(ngModel)]='newTallyQuantity' [ngModelOptions]="{standalone: true}"/>
+            <!--<label class="mdl-textfield__label" for="samplequantity">Quantity...</label>-->
         </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="sampleamount" [(ngModel)]='newTallyAmount' [ngModelOptions]="{standalone: true}"/>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="sampleamount" placeholder="Price... " [(ngModel)]='newTallyAmount' [ngModelOptions]="{standalone: true}"/>
             <label class="mdl-textfield__label" for="sampleamount">Amount...</label>
         </div>
-        <button class="mdl-button mdl-button--raised mdl-button--colored mdl-js-ripple-js mdl-button--accent" (click)="onAddTally()">
+        <button class="mdl-button mdl-button--raised mdl-button--colored mdl-js-ripple-js mdl-button--accent" (click)="onAddTally(a)">
             Add
         </button>
     </form>
@@ -25,7 +25,7 @@
             <th> Quantity </th>
         </thead>
         <tbody>
-            <tr *ngFor= 'let tally of tallies' (click)="onDeleteTally(tally)" class="tallyRow">
+            <tr *ngFor= 'let tally of tallies' (click)="onDeleteTally(tally)">
                 <td class='mdl-data-table__cell--non-numeric' > {{tally.tallyName}}</td>
                 <td>{{tally.tallyAmount}}₦</td>
                 <td>{{tally.tallyQuantity}}</td>

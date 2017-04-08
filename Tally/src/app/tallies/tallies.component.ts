@@ -17,11 +17,13 @@ newTallyName: string;
 newTallyAmount: number;
 newTallyQuantity: number;
 
+
 onAddTally(){
   this.tallies.push({tallyName: this.newTallyName, tallyAmount: this.newTallyAmount, tallyQuantity: this.newTallyQuantity})
   this.newTallyName = '';
   this.newTallyQuantity = null;
   this.newTallyAmount = null;
+  
   
 }
 onDeleteTally(tally){
