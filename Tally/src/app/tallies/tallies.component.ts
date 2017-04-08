@@ -17,14 +17,10 @@ newTallyName: string;
 newTallyAmount: number;
 newTallyQuantity: number;
 
-tallyPriceString: string;
 
-tallyPriceSum: number;
 
 onAddTally(){
   this.tallies.push({tallyName: this.newTallyName, tallyAmount: this.newTallyAmount, tallyQuantity: this.newTallyQuantity})
-  this.tallyPriceSum = this.tallyPriceSum + this.newTallyAmount
-  this.tallyPriceString = String(this.tallyPriceSum)
   this.newTallyName = '';
   this.newTallyQuantity = null;
   this.newTallyAmount = null;
@@ -37,7 +33,6 @@ onDeleteTally(tally){
 
   ngOnInit() {
     this.tallies = this.tallyService.getTallies();
-    this.tallyPriceSum = 0;
   }
 
 }
