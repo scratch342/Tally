@@ -17,10 +17,12 @@ newTallyName: string;
 newTallyAmount: number;
 newTallyQuantity: number;
 
-
+tallyPriceSum: number = 0;
 
 onAddTally(){
   this.tallies.push({tallyName: this.newTallyName, tallyAmount: this.newTallyAmount, tallyQuantity: this.newTallyQuantity})
+  this.tallyPriceSum = Number.parseInt(this.newTallyAmount.toString()) + Number.parseInt(this.tallyPriceSum.toString()) ;
+  console.log(this.tallyPriceSum);
   this.newTallyName = '';
   this.newTallyQuantity = null;
   this.newTallyAmount = null;
