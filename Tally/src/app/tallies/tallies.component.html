@@ -5,14 +5,14 @@
             <!--<label class="mdl-textfield__label" for="samplename">Name...</label>-->
         </div>
         <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" type="text" id="samplequantity" placeholder="Quantity... " [(ngModel)]='newTallyQuantity' [ngModelOptions]="{standalone: true}"/>
+            <input class="mdl-textfield__input" type="text" id="samplequantity" placeholder="Quantity... " [(ngModel)]='newTallyQuantity' [ngModelOptions]="{standalone: true}" />
             <!--<label class="mdl-textfield__label" for="samplequantity">Quantity...</label>-->
         </div>
         <div class="mdl-textfield mdl-js-textfield">
             <input class="mdl-textfield__input" type="text" id="sampleamount" placeholder="Price... " [(ngModel)]='newTallyAmount' [ngModelOptions]="{standalone: true}"/>
-            <label class="mdl-textfield__label" for="sampleamount">Amount...</label>
+            <!--<label class="mdl-textfield__label" for="sampleamount">Amount...</label>-->
         </div>
-        <button class="mdl-button mdl-button--raised mdl-button--colored mdl-js-ripple-js mdl-button--accent" (click)="onAddTally(a)">
+        <button class="mdl-button mdl-button--raised mdl-button--colored mdl-js-ripple-js mdl-button--accent" (click)="onAddTally()">
             Add
         </button>
     </form>
@@ -32,6 +32,8 @@
             </tr>
         </tbody>
     </table>
+    {{ tallyPriceSum }} <div class="mdl-textfield mdl-js-textfield"> <input class="mdl-textfield__input" type="text" id="debit" placeholder= "Paid..." [(ngModel)]='newPaidAmount' [ngModelOptions]="{standalone: true}" />
     </div>
-
+    <button class="mdl-button mdl-button--raised mdl-button--colored mdl-js-ripple-js mdl-button--accent" (click)="onPaid(tally)">Paid</button>
+    </div>
 </div>

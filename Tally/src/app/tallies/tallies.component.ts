@@ -16,6 +16,7 @@ tallies: Tally[] = [];
 newTallyName: string;
 newTallyAmount: number;
 newTallyQuantity: number;
+newPaidAmount: number;
 
 tallyPriceSum: number = 0;
 
@@ -29,6 +30,13 @@ onAddTally(){
   this.newTallyAmount = null;
   
   
+}
+onPaid(tally){
+  this.tallyPriceSum -= Number.parseInt(this.newPaidAmount.toString());
+  this.newPaidAmount = null;
+  if(this.tallyPriceSum == 0){
+    this.tallies = [];
+  }
 }
 onDeleteTally(tally){
   this.tallies.splice(this.tallies.indexOf(tally), 1)
