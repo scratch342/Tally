@@ -25,7 +25,7 @@
             <th> Quantity </th>
         </thead>
         <tbody>
-            <tr *ngFor= 'let tally of tallies' (click)="onDeleteTally(tally)">
+            <tr *ngFor= 'let tally of tallies' (click)="onDeleteTally(tally)" class="tallyRow">
                 <td class='mdl-data-table__cell--non-numeric' > {{tally.tallyName}}</td>
                 <td>{{tally.tallyAmount}}₦</td>
                 <td>{{tally.tallyQuantity}}</td>

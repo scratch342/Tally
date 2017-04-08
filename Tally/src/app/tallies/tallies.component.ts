@@ -6,8 +6,8 @@ import { Tally } from '../tally';
   selector: 'app-tallies',
   templateUrl: './tallies.component.html',
   styles: [`
-  span.glyphicon.glyphicon-trash:hover{
-    background-color: red;
+  .tallyRow:hover{
+    background-color: #ff1744;
   }
   `]
 })
