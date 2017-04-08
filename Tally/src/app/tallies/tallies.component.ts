@@ -13,48 +13,55 @@ import { Tally } from '../tally';
   `]
 })
 export class TalliesComponent implements OnInit {
-tallies: Tally[] = [];
-newTallyName: string;
-newTallyAmount: number;
-newTallyQuantity: number;
-
-newPaidAmount: number;
-
-tallyR: Tally;
-
-tallyPriceSum: number = 0;
-
-tallyQuantitySum: number = 0;
-
-onAddTally(){
-  this.tallies.push({tallyName: this.newTallyName, tallyAmount: this.newTallyAmount, tallyQuantity: this.newTallyQuantity})
-  this.tallyPriceSum = Number.parseInt(this.newTallyAmount.toString()) + Number.parseInt(this.tallyPriceSum.toString());
-  this.tallyQuantitySum = Number.parseInt(this.newTallyQuantity.toString()) + Number.parseInt(this.tallyQuantitySum.toString());
-  console.log(this.tallyPriceSum);
-  this.newTallyName = '';
-  this.newTallyQuantity = null;
-  this.newTallyAmount = null;
+  tallies: Tally[] = [];
+  newTallyName: string;
+  newTallyAmount: number;
+  newTallyQuantity: number;
   
+  newPaidAmount: number;
   
-}
-onPaid(tally){
-  this.tallyPriceSum -= Number.parseInt(this.newPaidAmount.toString());
-  this.newPaidAmount = null;
-  if(this.tallyPriceSum == 0){
-    this.tallies = [];
+  tallyR: Tally;
+  
+  tallyPriceSum: number = 0;
+  
+  tallyQuantitySum: number = 0;
+  
+  onAddTally(){
+    this.tallies.push({tallyName: this.newTallyName, tallyAmount: this.newTallyAmount, tallyQuantity: this.newTallyQuantity})
+    this.tallyPriceSum = Number.parseInt(this.newTallyAmount.toString()) + Number.parseInt(this.tallyPriceSum.toString());
+    this.tallyQuantitySum = Number.parseInt(this.newTallyQuantity.toString()) + Number.parseInt(this.tallyQuantitySum.toString());
+    console.log(this.tallyPriceSum);
+    this.newTallyName = '';
+    this.newTallyQuantity = null;
+    this.newTallyAmount = null;
+    
+    
   }
-}
-onDeleteTally(tally){
-  this.tallyR = this.tallies[this.tallies.indexOf(tally)];
-  this.tallyPriceSum = Number.parseInt(this.tallyPriceSum.toString()) - Number.parseInt(this.tallyR.tallyAmount.toString());
-  this.tallyQuantitySum = Number.parseInt(this.tallyQuantitySum.toString()) - Number.parseInt(this.tallyR.tallyQuantity.toString());
-  this.tallies.splice(this.tallies.indexOf(tally), 1);
-}
-  constructor(private tallyService: TallyService) {}
-
-  ngOnInit() {
-    this.tallies = this.tallyService.getTallies();
+  onPaid(tally){
+    if (this.tallyPriceSum > 0) {
+      if (this.newPaidAmount <= this.tallyPriceSum) {
+         this.tallyPriceSum -= Number.parseInt(this.newPaidAmount.toString());
+      }
+     
+    }
+    this.newPaidAmount = null;
+    
+    if(this.tallyPriceSum <= 0){
+      this.tallies = [];
+      this.tallyQuantitySum = 0;
+    }
   }
+  onDeleteTally(tally){
+    this.tallyR = this.tallies[this.tallies.indexOf(tally)];
+    this.tallyPriceSum = Number.parseInt(this.tallyPriceSum.toString()) - Number.parseInt(this.tallyR.tallyAmount.toString());
+    this.tallyQuantitySum = Number.parseInt(this.tallyQuantitySum.toString()) - Number.parseInt(this.tallyR.tallyQuantity.toString());
+    this.tallies.splice(this.tallies.indexOf(tally), 1);
+  }
+    constructor(private tallyService: TallyService) {}
+  
+    ngOnInit() {
+      this.tallies = this.tallyService.getTallies();
+    }
 
 }
 
