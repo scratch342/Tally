@@ -19,7 +19,9 @@ newTallyAmount: number;
 newTallyQuantity: number;
 tallyR: Tally;
 tallyPriceSum: number = 0;
+
 tallyQuantitySum: number = 0;
+
 onAddTally(){
   this.tallies.push({tallyName: this.newTallyName, tallyAmount: this.newTallyAmount, tallyQuantity: this.newTallyQuantity})
   this.tallyPriceSum = Number.parseInt(this.newTallyAmount.toString()) + Number.parseInt(this.tallyPriceSum.toString());
@@ -28,6 +30,7 @@ onAddTally(){
   this.newTallyName = '';
   this.newTallyQuantity = null;
   this.newTallyAmount = null;
+  
   
 }
 onDeleteTally(tally){
