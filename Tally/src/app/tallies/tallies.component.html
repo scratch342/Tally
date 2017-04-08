@@ -1,5 +1,6 @@
 
 <div class='mdl-grid'>
+    
     <div class='mdl-cell mdl-cell--8-col'>
         <div class='talcon'>
             <form action="#" class='center'>
@@ -35,20 +36,21 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="mdl-textfield mdl-js-textfield"> 
+                <div class="mdl-textfield mdl-js-textfield paddingleft"> 
                   <input class="mdl-textfield__input" type="text" id="debit" placeholder= "Payment Amount..." [(ngModel)]='newPaidAmount' [ngModelOptions]="{standalone: true}" />
                 </div>
               <button class="mdl-button mdl-button--raised mdl-button--colored mdl-js-ripple-js mdl-button--accent" (click)="onPaid(tally)">Pay...</button>
             </div>
     
+        </div>
     
     
-
 
     </div>
-</div>
-    <div class='mdl-cell mdl-cell--4-col'>
+    <div class='mdl-cell mdl-cell--4-col totalcenter'>
         <app-sumdisplay [price]='tallyPriceSum' [length]='tallies.length' [quantity]='tallyQuantitySum'></app-sumdisplay>
     </div>
+</div>
+    
 
 
